@@ -78,12 +78,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         //设置默认密码123456进行md5加密  //getBytes()方法将字符串转换为字节数组编码 //将字节数组转换为16进制字符串
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
         //设置创建时间和更新时间当前时间
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+        //employee.setCreateTime(LocalDateTime.now());
+        //employee.setUpdateTime(LocalDateTime.now());
         //根据token动态获取当前登录用户id  从拦截器中获取当前登录用户id
         Long userId = BaseContext.getCurrentId();
-        employee.setCreateUser(userId);
-        employee.setUpdateUser(userId);
+        //employee.setCreateUser(userId);
+        //employee.setUpdateUser(userId);
 
         employeeMapper.insert(employee);
     }
@@ -139,10 +139,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         //对象属性拷贝
         BeanUtils.copyProperties(employeeDTO, employee);
         //设置更新时间当前时间
-        employee.setUpdateTime(LocalDateTime.now());
+        //employee.setUpdateTime(LocalDateTime.now());
         //修改人
-        Long userId = BaseContext.getCurrentId();
-        employee.setUpdateUser(userId);
+        //Long userId = BaseContext.getCurrentId();
+        //employee.setUpdateUser(userId);
         employeeMapper.update(employee);
     }
 }
